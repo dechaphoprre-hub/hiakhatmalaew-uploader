@@ -1,0 +1,12 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Connected</title>
+<style>body{font-family:system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6}h1{color:#e8620a}textarea{width:100%;height:120px;font-size:14px}</style></head><body>
+<h1>เฮียคัดมาแล้ว Uploader</h1>
+<p id="msg">กำลังอ่านผล...</p>
+<textarea id="u" readonly></textarea>
+<p><button onclick="navigator.clipboard.writeText(document.getElementById('u').value)">คัดลอก</button></p>
+<p>คัดลอกข้อความในกล่องนี้ทั้งหมด แล้ววางในหน้าต่างโปรแกรม openbot บนคอม</p>
+<script>
+const p=new URLSearchParams(location.search);
+document.getElementById('msg').textContent=p.get('code')?'เชื่อมบัญชีสำเร็จ':('ไม่สำเร็จ: '+(p.get('error_description')||p.get('error')||'ไม่มีรหัส'));
+document.getElementById('u').value=location.href;
+</script></body></html>
